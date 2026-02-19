@@ -2,6 +2,9 @@
 
 A simple web-based Employee Payroll System built with Node.js, Express, and EJS. It allows you to register, view, edit, and delete employee records, with automatic payroll calculations including tax deductions.
 
+## live link
+https://payroll-management-app.onrender.com
+
 ## Tech Stack
 
 | Layer      | Technology          |
