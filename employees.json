@@ -12,21 +12,9 @@
     "basicSalary": 60000
   },
   {
-    "id": 1771314044837,
-    "name": "Sona Sharma",
+    "id": 1771479764125,
+    "name": "dev sharma",
     "department": "Finance",
-    "basicSalary": 100000
-  },
-  {
-    "id": 1771317883593,
-    "name": "Apeksha Singh",
-    "department": "Engineer",
-    "basicSalary": 10000000
-  },
-  {
-    "id": 1771421589848,
-    "name": "birju",
-    "department": "Sales",
-    "basicSalary": 80000
+    "basicSalary": 68464
   }
 ]
