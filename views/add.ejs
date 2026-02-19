@@ -1,21 +1,144 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Employee</title>
-    <link rel="stylesheet" href="/style.css">
+  <title>Add Employee</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<h1>Add Employee</h1>
+<!-- Header -->
+<div class="header-bar">
+  <div class="logo">
+    <div class="logo-box">💼</div>
+    <div class="logo-text">
+      <span class="emp">EMPLOYEE</span>
+      <span class="pay">PAYROLL</span>
+    </div>
+  </div>
+</div>
 
-<form method="POST" action="/add">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="text" name="department" placeholder="Department" required>
-    <input type="number" step="0.01" name="basicSalary" placeholder="Basic Salary" required>
-    <button type="submit">Add</button>
-</form>
+<!-- Form Card -->
+<div class="form-wrapper">
+  <div class="form-card">
+    <h2>Employee Payroll Form</h2>
 
-<a href="/">Back</a>
+    <form action="/add" method="POST">
+
+      <!-- Name -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="form-group">
+        <label>Profile image</label>
+        <div class="avatar-group">
+          <label><input type="radio" name="image" value="1">
+            <img src="https://randomuser.me/api/portraits/women/1.jpg">
+          </label>
+
+          <label><input type="radio" name="image" value="2">
+            <img src="https://randomuser.me/api/portraits/men/2.jpg">
+          </label>
+
+          <label><input type="radio" name="image" value="3">
+            <img src="https://randomuser.me/api/portraits/women/3.jpg">
+          </label>
+
+          <label><input type="radio" name="image" value="4">
+            <img src="https://randomuser.me/api/portraits/men/4.jpg">
+          </label>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="group">
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+          <label><input type="radio" name="gender" value="Others"> Others</label>
+        </div>
+      </div>
+
+      <!-- Department -->
+      <div class="form-group">
+        <label>Department</label>
+        <div class="inline-group">
+          <label><input type="radio" name="department" value="HR"> HR</label>
+          <label><input type="radio" name="department" value="Sales"> Sales</label>
+          <label><input type="radio" name="department" value="Finance"> Finance</label>
+          <label><input type="radio" name="department" value="Engineer"> Engineer</label>
+          <label><input type="radio" name="department" value="Others"> Others</label>
+        </div>
+      </div>
+
+      <!-- Salary -->
+      <div class="form-group">
+        <label>Salary</label>
+       <input 
+        type="number" 
+        name="basicSalary" 
+        placeholder="Enter Salary"
+        min="0"
+        step="0.01"
+        required
+        />
+      </div>
+
+      <!-- Start Date -->
+      <div class="form-group">
+        <label>Start Date</label>
+        <div class="date-group">
+          <select name="day">
+            <option>Day</option>
+            <% for(let i=1;i<=31;i++){ %>
+              <option><%= i %></option>
+            <% } %>
+          </select>
+
+          <select name="month">
+            <option>Month</option>
+            <option>Jan</option>
+            <option>Feb</option>
+            <option>Mar</option>
+            <option>Apr</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>Aug</option>
+            <option>Sept</option>
+            <option>Oct</option>
+            <option>Nov</option>
+            <option>Dec</option>
+          </select>
+
+          <select name="year">
+            <option>Year</option>
+            <% for(let y=2020;y<=2026;y++){ %>
+              <option><%= y %></option>
+            <% } %>
+          </select>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea name="notes"></textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="button-group">
+        <a href="/" class="cancel-btn">Cancel</a>
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </div>
+
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

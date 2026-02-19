@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Payroll Dashboard</title>
-    <link rel="stylesheet" href="/style.css">
+  <title>Employee Payroll</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<h1>Employee Payroll Dashboard</h1>
-<a href="/add">Add Employee</a>
+<div class="container">
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Basic Salary</th>
-        <th>Tax (10%)</th>
-        <th>Net Salary</th>
-        <th>Actions</th>
-    </tr>
+  <!-- Header -->
+  <div class="top-header">
+    <div class="logo-section">
+      <div class="logo-box">💼</div>
+      <div class="logo-text">
+        <span class="emp">EMPLOYEE</span>
+        <span class="pay">PAYROLL</span>
+      </div>
+    </div>
 
-    <% employees.forEach(emp => { 
-        const tax = emp.basicSalary * 0.10;
-        const net = emp.basicSalary - tax;
-    %>
+    <div class="right-actions">
+      <a href="/add" class="add-btn">+ Add User</a>
+    </div>
+  </div>
 
-    <tr>
-        <td><%= emp.name %></td>
-        <td><%= emp.department %></td>
-        <td><%= emp.basicSalary %></td>
-        <td><%= tax.toFixed(2) %></td>
-        <td><%= net.toFixed(2) %></td>
-        <td>
-            <a href="/edit/<%= emp.id %>">Edit</a>
-            <a href="/delete/<%= emp.id %>">Delete</a>
-        </td>
-    </tr>
+  <h2 class="page-title">Employee Details</h2>
 
-    <% }) %>
-</table>
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>DEPARTMENT</th>
+          <th>BASIC SALARY</th>
+          <th>TAX (10%)</th>
+          <th>NET SALARY</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% employees.forEach(emp => { 
+           const tax = emp.basicSalary * 0.10;
+           const net = emp.basicSalary - tax;
+        %>
+
+        <tr>
+          <td><%= emp.name %></td>
+          <td><%= emp.department %></td>
+          <td>₹ <%= emp.basicSalary %></td>
+          <td>₹ <%= tax.toFixed(2) %></td>
+          <td>₹ <%= net.toFixed(2) %></td>
+          <td>
+            <a href="/edit/<%= emp.id %>" class="edit-btn">Edit</a>
+            <a href="/delete/<%= emp.id %>" class="delete-btn">Delete</a>
+          </td>
+        </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
 
 </body>
 </html>

@@ -1,37 +1,291 @@
-body {
-    font-family: Arial;
-    padding: 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-h1, h2 {
-    margin-bottom: 10px;
+body {
+  background-color: #f2f3f5;
+  padding: 40px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Top Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box {
+  background: #e8f5e9;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.logo-text .emp {
+  color: #4CAF50;
+}
+
+.logo-text .pay {
+  color: #333;
+}
+
+/* Right buttons */
+.right-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.search-btn {
+  padding: 10px 14px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.add-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add-btn:hover {
+  background: #45a049;
+}
+
+/* Title */
+.page-title {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Table Card */
+.table-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
+thead {
+  background-color: #3f4a56;
+  color: white;
 }
 
 th {
-    background-color: #333;
-    color: white;
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
 }
 
-a {
-    margin-right: 10px;
-    text-decoration: none;
+td {
+  padding: 16px;
+  font-size: 14px;
+  color: #555;
+  border-bottom: 1px solid #eee;
 }
 
-form input {
-    display: block;
-    margin: 10px 0;
-    padding: 8px;
-    width: 250px;
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Name cell */
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name-cell img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* Badges */
+.badge {
+  background: #e8f5e9;
+  color: #4CAF50;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* Actions */
+.actions {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Header */
+.header-bar {
+  background: #f4f5f7;
+  padding: 15px 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  background: #e8f5e9;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.emp {
+  color: #4CAF50;
+}
+
+.pay {
+  color: #333;
+}
+
+/* Form */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: #f4f5f7;
+}
+
+.form-card {
+  background: white;
+  padding: 40px;
+  width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+input[type="text"],
+select,
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  height: 80px;
+}
+
+.inline-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.avatar-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.avatar-group img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.date-group {
+  display: flex;
+  gap: 15px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.cancel-btn,
+.reset-btn,
+.submit-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: black;
+}
+
+.reset-btn {
+  background: #ddd;
+}
+
+.submit-btn {
+  background: #4CAF50;
+  color: white;
+}
+.group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }

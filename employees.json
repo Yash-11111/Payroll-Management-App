@@ -4,5 +4,29 @@
     "name": "Rahul Sharma",
     "department": "Engineering",
     "basicSalary": 50003
+  },
+  {
+    "id": 1771309215145,
+    "name": "Lakshita Sharma",
+    "department": "Engineer",
+    "basicSalary": 60000
+  },
+  {
+    "id": 1771314044837,
+    "name": "Sona Sharma",
+    "department": "Finance",
+    "basicSalary": 100000
+  },
+  {
+    "id": 1771317883593,
+    "name": "Apeksha Singh",
+    "department": "Engineer",
+    "basicSalary": 10000000
+  },
+  {
+    "id": 1771421589848,
+    "name": "birju",
+    "department": "Sales",
+    "basicSalary": 80000
   }
 ]

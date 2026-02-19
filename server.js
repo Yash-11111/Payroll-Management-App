@@ -1,29 +1,34 @@
-const express = require('express');
-const path = require('path');
-const fileHandler = require('./modules/fileHandler');
-
+const express = require("express");
 const app = express();
-const PORT = 3000;
+const path = require("path");
+const fs = require("fs").promises;
+
+const PORT = process.env.PORT || 3000;
+const FILE_PATH = path.join(__dirname, "employees.json");
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
-// Log employees when server starts
-app.listen(PORT, async () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-    const employees = await fileHandler.read();
-    console.log("Loaded Employees:", employees);
-});
+// Helper functions
+async function readEmployees() {
+    try {
+        const data = await fs.readFile(FILE_PATH, "utf8");
+        return JSON.parse(data);
+    } catch (err) {
+        return [];
+    }
+}
 
+async function writeEmployees(data) {
+    await fs.writeFile(FILE_PATH, JSON.stringify(data, null, 2));
+}
 
-
+// Routes
 app.get('/', async (req, res) => {
-    const employees = await fileHandler.read();
+    const employees = await readEmployees();
     res.render('index', { employees });
 });
-
-
 
 app.get('/add', (req, res) => {
     res.render('add');
@@ -36,7 +41,7 @@ app.post('/add', async (req, res) => {
         return res.send("Invalid Input");
     }
 
-    const employees = await fileHandler.read();
+    const employees = await readEmployees();
 
     const newEmployee = {
         id: Date.now(),
@@ -46,28 +51,21 @@ app.post('/add', async (req, res) => {
     };
 
     employees.push(newEmployee);
-    await fileHandler.write(employees);
+    await writeEmployees(employees);
 
     res.redirect('/');
 });
-
-
 
 app.get('/delete/:id', async (req, res) => {
-    const employees = await fileHandler.read();
-
+    const employees = await readEmployees();
     const filtered = employees.filter(emp => emp.id != req.params.id);
-
-    await fileHandler.write(filtered);
-
+    await writeEmployees(filtered);
     res.redirect('/');
 });
 
-
 app.get('/edit/:id', async (req, res) => {
-    const employees = await fileHandler.read();
+    const employees = await readEmployees();
     const employee = employees.find(emp => emp.id == req.params.id);
-
     res.render('edit', { employee });
 });
 
@@ -78,7 +76,7 @@ app.post('/edit/:id', async (req, res) => {
         return res.send("Invalid Input");
     }
 
-    const employees = await fileHandler.read();
+    const employees = await readEmployees();
     const index = employees.findIndex(emp => emp.id == req.params.id);
 
     employees[index] = {
@@ -88,7 +86,11 @@ app.post('/edit/:id', async (req, res) => {
         basicSalary: Number(basicSalary)
     };
 
-    await fileHandler.write(employees);
+    await writeEmployees(employees);
 
     res.redirect('/');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
