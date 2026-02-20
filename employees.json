@@ -1,32 +1,12 @@
 [
   {
-    "id": 1771525586435,
-    "name": "Yash Kesarwani",
-    "department": "HR",
-    "basicSalary": 50000
-  },
-  {
-    "id": 1771525626993,
-    "name": "Dev Sharma",
-    "department": "Finance",
-    "basicSalary": 50000
-  },
-  {
-    "id": 1771525717530,
-    "name": "Lakshita Sharma",
-    "department": "Marketing",
-    "basicSalary": 50000
-  },
-  {
-    "id": 1771309215146,
-    "name": "Apeksha Singh",
-    "department": "Engineer",
-    "basicSalary": 40000
-  },
-  {
-    "id": 1771525687325,
-    "name": "Abhishek Sharma",
-    "department": "Sales",
-    "basicSalary": 50000
+    "id": 1771570511653,
+    "name": "Akash Gupta",
+    "image": "2",
+    "gender": "Male",
+    "department": "Engineering",
+    "basicSalary": 10,
+    "joiningDate": "2000-05-19",
+    "notes": "ujljudsgfhjfjwgfgdwahjs"
   }
 ]

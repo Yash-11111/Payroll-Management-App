@@ -48,12 +48,16 @@ app.post('/add', async (req, res) => {
 
     const employees = await readEmployees();
 
-    const newEmployee = {
-        id: Date.now(),
-        name: name.trim(),
-        department: department.trim(),
-        basicSalary: Number(basicSalary)
-    };
+const newEmployee = {
+  id: Date.now(),
+  name: req.body.name,
+  image: req.body.image,
+  gender: req.body.gender,
+  department: req.body.department,
+  basicSalary: Number(req.body.basicSalary),
+  joiningDate: req.body.joiningDate,
+  notes: req.body.notes
+};
 
     employees.push(newEmployee);
     await writeEmployees(employees);
@@ -85,16 +89,16 @@ app.post('/edit/:id', async (req, res) => {
     const employees = await readEmployees();
     const index = employees.findIndex(emp => emp.id == req.params.id);
 
-    employees[index] = {
+   employees[index] = {
   ...employees[index],
   name: req.body.name,
   image: req.body.image,
   gender: req.body.gender,
   department: req.body.department,
   basicSalary: Number(req.body.basicSalary),
+  joiningDate: req.body.joiningDate,
   notes: req.body.notes
-
-    };
+};
 
     await writeEmployees(employees);
 

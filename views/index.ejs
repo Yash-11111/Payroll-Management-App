@@ -34,6 +34,7 @@
           <th>BASIC SALARY</th>
           <th>TAX (10%)</th>
           <th>NET SALARY</th>
+          <th>Joining Date</th>
           <th>ACTIONS</th>
         </tr>
       </thead>
@@ -50,6 +51,7 @@
           <td>₹ <%= emp.basicSalary %></td>
           <td>₹ <%= tax.toFixed(2) %></td>
           <td>₹ <%= net.toFixed(2) %></td>
+          <td><%= emp.joiningDate %></td>
           <td>
             <a href="/edit/<%= emp.id %>" class="edit-btn">Edit</a>
             <a href="/delete/<%= emp.id %>" class="delete-btn">Delete</a>
