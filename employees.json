@@ -12,12 +12,6 @@
     "basicSalary": 50000
   },
   {
-    "id": 1771525687325,
-    "name": "Abhishek",
-    "department": "Sales",
-    "basicSalary": 50000
-  },
-  {
     "id": 1771525717530,
     "name": "Lakshita Sharma",
     "department": "Marketing",
@@ -28,5 +22,11 @@
     "name": "Apeksha Singh",
     "department": "Engineer",
     "basicSalary": 40000
+  },
+  {
+    "id": 1771525687325,
+    "name": "Abhishek Sharma",
+    "department": "Sales",
+    "basicSalary": 50000
   }
 ]
