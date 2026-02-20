@@ -225,6 +225,10 @@ textarea {
   border-radius: 6px;
 }
 
+input[type="radio"] {
+  width: 10%;
+  margin-right: 5px;
+}
 
 textarea {
   height: 80px;
@@ -277,6 +281,7 @@ textarea {
 .cancel-btn {
   background: #ccc;
   color: black;
+  display: inline-block;
 }
 
 .reset-btn {
@@ -311,24 +316,19 @@ body.edit-page {
   align-items: center;
 }
 
+/* ===== EDIT PAGE WIDTH FIX ===== */
+
 body.edit-page .form-wrapper {
-  all: unset;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 500px;
+  margin: auto;
+  padding: 40px 0;
 }
 
 body.edit-page .form-card {
-  all: unset;
-  background: white;
-  width: 400px;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
-  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
-
 body.edit-page h2 {
   text-align: center;
   margin-bottom: 20px;

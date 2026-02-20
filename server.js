@@ -37,6 +37,8 @@ app.get('/add', (req, res) => {
     res.render('add');
 });
 
+// add data
+
 app.post('/add', async (req, res) => {
     const { name, department, basicSalary } = req.body;
 
@@ -58,6 +60,7 @@ app.post('/add', async (req, res) => {
 
     res.redirect('/');
 });
+// delete by id 
 
 app.get('/delete/:id', async (req, res) => {
     const employees = await readEmployees();
@@ -65,7 +68,7 @@ app.get('/delete/:id', async (req, res) => {
     await writeEmployees(filtered);
     res.redirect('/');
 });
-
+// edit by id
 app.get('/edit/:id', async (req, res) => {
     const employees = await readEmployees();
     const employee = employees.find(emp => emp.id == req.params.id);
@@ -83,17 +86,21 @@ app.post('/edit/:id', async (req, res) => {
     const index = employees.findIndex(emp => emp.id == req.params.id);
 
     employees[index] = {
-        ...employees[index],
-        name: name.trim(),
-        department: department.trim(),
-        basicSalary: Number(basicSalary)
+  ...employees[index],
+  name: req.body.name,
+  image: req.body.image,
+  gender: req.body.gender,
+  department: req.body.department,
+  basicSalary: Number(req.body.basicSalary),
+  notes: req.body.notes
+
     };
 
     await writeEmployees(employees);
 
     res.redirect('/');
 });
-
+// server start
 app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
     const employees = await fileHandler.read();
